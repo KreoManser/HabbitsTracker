@@ -97,6 +97,11 @@ h1 {
   color: black;
 }
 
+h2 {
+  font-size: 24px;
+  line-height: 120%;
+}
+
 .progress {
   display: flex;
   flex-direction: column;
@@ -227,4 +232,95 @@ input.error {
 
 .button:hover {
   background: #f3f6fd;
+}
+
+.cover {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cover_hidden {
+  display: none;
+}
+
+.popup {
+  background: white;
+  box-shadow: 0px 8px 14px 12px rgba(56, 56, 56, 0.05);
+  border-radius: 10px;
+  padding: 24px 24px 50px 24px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.popup__close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+.icon-label {
+  font-size: 14px;
+  line-height: 16px;
+  color: #768396;
+}
+
+.icon-select {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 10px;
+}
+
+.icon {
+  background: none;
+  border: 1px solid #5051f9;
+  border-radius: 14px;
+  width: 45px;
+  height: 45px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon:hover {
+  background: #6a6afb;
+}
+
+.icon:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.icon_active {
+  background: #5051f9;
+}
+
+.icon_active img {
+  filter: brightness(0) invert(1);
+}
+
+.add-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.add-form input {
+  width: 100%;
 }
