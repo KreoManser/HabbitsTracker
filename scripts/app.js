@@ -16,6 +16,7 @@ const page = {
     daysContainer: document.getElementById("days"),
     nextDay: document.querySelector(".habbit__day"),
     habbitComment: document.querySelector(".habbit__comment"),
+    habbitContent: document.querySelector("main"),
   },
   popup: {
     index: document.getElementById("add-habbit-popup"),
@@ -31,6 +32,7 @@ function loadData() {
   if (Array.isArray(habbitArray)) {
     habbits = habbitArray;
   }
+  rerenderMenuFirst();
 }
 
 function saveData() {
@@ -92,6 +94,19 @@ function rerenderContent(activeHabbit) {
     page.content.daysContainer.appendChild(element);
   }
   page.content.nextDay.innerHTML = `День ${activeHabbit.days.length + 1}`;
+}
+
+function rerenderMenuFirst() {
+  const mainContent = document.querySelector("main");
+  const progressElement = document.querySelector(".progress");
+
+  if (habbits.length === 0) {
+    mainContent.classList.add("main_hidden");
+    progressElement.classList.add("main_hidden");
+  } else {
+    mainContent.classList.remove("main_hidden");
+    progressElement.classList.remove("main_hidden");
+  }
 }
 
 function rerender(activeHabbitId) {
@@ -199,17 +214,21 @@ function addNewHabbit(event) {
     (acc, habbit) => (acc > habbit.id ? acc : habbit.id),
     0
   );
-  habbits.push({
+  const newHabbit = {
     id: maxId + 1,
     name: data.name,
     target: data.target,
     icon: data.icon,
     days: [],
-  });
-  resetForm(event.target, ["name", "target", "icon"]);
+  };
+
+  habbits.push(newHabbit);
+  resetForm(event.target, ["name", "target"]);
   rerender(globalActiveHabbitId);
   togglePopup();
   saveData();
+  rerenderMenuFirst();
+  rerender(newHabbit.id);
 }
 
 /* init */
