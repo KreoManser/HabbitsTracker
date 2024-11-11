@@ -99,13 +99,16 @@ function rerenderContent(activeHabbit) {
 function rerenderMenuFirst() {
   const mainContent = document.querySelector("main");
   const progressElement = document.querySelector(".progress");
+  const addButton = document.querySelector(".menu__add");
 
   if (habbits.length === 0) {
     mainContent.classList.add("main_hidden");
     progressElement.classList.add("main_hidden");
+    addButton.classList.add("pulse"); // Добавляем пульсацию
   } else {
     mainContent.classList.remove("main_hidden");
     progressElement.classList.remove("main_hidden");
+    addButton.classList.remove("pulse"); // Убираем пульсацию
   }
 }
 
